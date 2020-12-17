@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.mystartkotlin.EventAdapter.EventViewHolder
 import java.util.*
 
-internal class EventAdapter(context: Context?,  /*ArrayList<Event> events,*/
-                            RemoveClickListener: RemoveClickListener) : RecyclerView.Adapter<EventViewHolder>() {
+internal class EventAdapter(
+    context: Context?,  /*ArrayList<Event> events,*/
+    RemoveClickListener: RemoveClickListener
+) : RecyclerView.Adapter<EventViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private val events = ArrayList<Event>()
     private val removeEventClickListener: RemoveClickListener = RemoveClickListener

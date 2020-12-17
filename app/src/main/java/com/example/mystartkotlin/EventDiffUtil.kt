@@ -3,7 +3,10 @@ package com.example.mystartkotlin
 import androidx.recyclerview.widget.DiffUtil
 import java.util.*
 
-internal class EventDiffUtil(private val oldList: ArrayList<Event>, private val newList: ArrayList<Event>) : DiffUtil.Callback() {
+internal class EventDiffUtil(
+    private val oldList: ArrayList<Event>,
+    private val newList: ArrayList<Event>
+) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return oldList.size
     }

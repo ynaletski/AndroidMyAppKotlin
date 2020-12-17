@@ -19,9 +19,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if (Cash.getEvents().size == 0) {
-            Cash.addEvent(resources.getString(R.string.defaultNumber),
+            Cash.addEvent(
+                resources.getString(R.string.defaultNumber),
                 resources.getString(R.string.defaultTextDescription),
-                resources.getString(R.string.defaultDateTime))
+                resources.getString(R.string.defaultDateTime)
+            )
         }
 
         recyclerView = findViewById(R.id.eventList)
@@ -30,12 +32,14 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(false)
         eventAdapter = EventAdapter(this, object : RemoveClickListener {
 
-            override fun removeEvent (positionEvent: Int){
+            override fun removeEvent(positionEvent: Int) {
                 Cash.getEvents().removeAt(positionEvent)
                 if (Cash.getEvents().size == 0) {
-                    Cash.addEvent(resources.getString(R.string.defaultNumber),
+                    Cash.addEvent(
+                        resources.getString(R.string.defaultNumber),
                         resources.getString(R.string.defaultTextDescription),
-                        resources.getString(R.string.defaultDateTime))
+                        resources.getString(R.string.defaultDateTime)
+                    )
                 }
                 eventAdapter.insertData(Cash.getEvents())
             }

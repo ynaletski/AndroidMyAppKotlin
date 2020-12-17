@@ -1,10 +1,8 @@
 package com.example.mystartkotlin
 
-import java.util.*
-
 object Cash {
 
-    private lateinit var events: ArrayList<Event>
+    private val events: ArrayList<Event> = ArrayList()
 
     fun getEvents(): ArrayList<Event> {
         return events
@@ -14,17 +12,21 @@ object Cash {
         return events[position]
     }
 
-    fun addEvent(numberEvent: String, descriptionEvent: String, timeEvent: String) {
+    private fun validateEvent(numberEvent: String, descriptionEvent: String): Boolean{
         var validate = true
         for (i in 0 until events.size) {
             if (getEvents(i)._description == descriptionEvent &&
-                getEvents(i)._number == numberEvent
+                    getEvents(i)._number == numberEvent
             ) {
                 validate = false
                 break
             }
         }
-        if (validate) {
+        return validate
+    }
+
+    fun addEvent(numberEvent: String, descriptionEvent: String, timeEvent: String) {
+        if (validateEvent(numberEvent, descriptionEvent)) {
             events.add(Event(numberEvent, descriptionEvent, timeEvent))
         }
     }

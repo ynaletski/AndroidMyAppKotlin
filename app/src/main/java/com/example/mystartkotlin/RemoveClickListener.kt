@@ -1,6 +1,6 @@
 package com.example.mystartkotlin
 
 interface RemoveClickListener {
-    fun removeEvent (positionEvent: Int) {
+    fun removeEvent(positionEvent: Int) {
     }
 }
